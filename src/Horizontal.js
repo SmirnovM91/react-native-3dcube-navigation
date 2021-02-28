@@ -41,7 +41,7 @@ export default class CubeNavigationHorizontal extends React.Component {
       if (this.props.callbackOnSwipe) {
         this.props.callbackOnSwipe(false);
       }
-      let mod = gestureState.dx > 0 ? 100 : -100;
+      let mod = gestureState.dx > 0 ? 200 : -200;
 
       const currentPage = this._closest(this._value.x + mod);
       let goTo = this.pages[currentPage];
@@ -53,7 +53,7 @@ export default class CubeNavigationHorizontal extends React.Component {
         toValue: { x: goTo, y: 0 },
         friction: 5,
         tension: 0.6,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }).start();
       setTimeout(() => {
         this.setState({
@@ -115,7 +115,7 @@ export default class CubeNavigationHorizontal extends React.Component {
         toValue: { x: this.pages[page], y: 0 },
         friction: 5,
         tension: 0.6,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }).start();
     } else {
       this._animatedValue.setValue({ x: this.pages[page], y: 0 });
